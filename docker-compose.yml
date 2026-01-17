@@ -1,0 +1,71 @@
+services:
+  db:
+    image: postgis/postgis:16-3.5
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: streetcats_db
+    tmpfs:
+      - /var/lib/postgresql/data
+    volumes:
+      - ./backend/seed.sql:/docker-entrypoint-initdb.d/seed.sql
+    ports:
+      - "5433:5432"
+
+  backend:
+    build: ./backend
+    command: >
+      bash -c "until python manage.py migrate; do
+                sleep 3;
+              done;
+              python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - MEDIA_HOST=http://localhost:8000
+    volumes:
+      - backend_media:/app/media
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://backend:8000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      backend:
+        condition: service_started
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5173 || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  tests:
+    build:
+      context: ./frontend
+      dockerfile: tests/Dockerfile
+    depends_on:
+      frontend:
+        condition: service_healthy
+      backend:
+        condition: service_started
+    networks:
+      - default
+    volumes:
+      - ./frontend/tests:/app/tests 
+      - ./frontend/tests/test-results:/app/tests/test-results
+
+volumes:
+  backend_media:

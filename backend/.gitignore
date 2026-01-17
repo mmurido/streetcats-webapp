@@ -1,0 +1,55 @@
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+env/
+
+# Database
+*.sqlite3
+*.db
+*.sql
+
+# Django stuff
+*.log
+local_settings.py
+db.sqlite3
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Static files collected during build
+staticfiles/
+
+# Media files
+media/
+
+# macOS
+.DS_Store
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+
+# PyCharm
+.idea/
+*.iml
+
+# VS Code
+.vscode/

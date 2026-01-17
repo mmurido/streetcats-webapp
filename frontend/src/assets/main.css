@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply font-sans text-text;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    overflow-x: hidden;
+  }
+
+  #app {
+    min-height: 100%;
+  }
+}
+
+@layer components {
+  .g-field {
+    @apply my-1 block w-full rounded-lg border border-border px-4 py-2 text-sm;
+  }
+
+  .g-field-error {
+    @apply ring-[1.5px] ring-border-error;
+  }
+
+  .g-field-error-msg {
+    @apply -mb-3 text-xs font-medium text-text-error;
+  }
+
+  .g-field-label {
+    @apply block text-sm font-medium text-text;
+  }
+
+  .custom-popup .leaflet-popup-content-wrapper {
+    @apply rounded-xl border-[1.5px] border-border bg-surface p-[2px] shadow-xl;
+  }
+
+  .custom-popup .leaflet-popup-content {
+    @apply m-0 w-full p-0;
+    width: auto !important;
+  }
+
+  .custom-popup .leaflet-popup-tip {
+    @apply bg-white;
+  }
+
+  .custom-popup .leaflet-popup-close-button {
+    display: none !important;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #dddddd;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #eeeeee;
+  }
+
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #dddddd transparent;
+  }
+}

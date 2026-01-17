@@ -1,0 +1,47 @@
+{
+  "name": "streetcats-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource/poppins": "^5.2.6",
+    "@headlessui/vue": "^1.7.23",
+    "@heroicons/vue": "^2.2.0",
+    "@sidekickicons/vue": "^0.14.0",
+    "@vue/server-renderer": "^3.5.18",
+    "date-fns": "^4.1.0",
+    "dompurify": "^3.2.6",
+    "emoji-toolkit": "^9.0.1",
+    "i18n-iso-countries": "^7.14.0",
+    "leaflet": "^1.9.4",
+    "markdown-it": "^14.1.0",
+    "ofetch": "^1.4.1",
+    "pinia": "^3.0.3",
+    "vue": "^3.5.18",
+    "vue-router": "^4.5.1",
+    "zod": "^4.1.11"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/dompurify": "^3.0.5",
+    "@types/leaflet": "^1.9.20",
+    "@types/markdown-it": "^14.1.2",
+    "@types/node": "^24.9.2",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.7.0",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.8.3",
+    "vite": "^7.1.0",
+    "vue-tsc": "^3.0.5"
+  }
+}
