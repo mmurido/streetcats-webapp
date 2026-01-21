@@ -36,13 +36,20 @@ Docker · Docker Compose · Playwright
 
 ---
 
-## 📂 Project Structure
+## 🎥 Demo
 
-```
-streetcats-webapp/
-├── frontend/ # Vue SPA
-├── backend/ # Django REST API
-└── docker-compose.yml
-```
+### Signing up
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/5cfd773d-4666-45d8-bc27-7faa65eef9de" width="60%">
+</p>
 
+### Viewing a post
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/293c9def-0b25-4f17-bdce-5d4e7c5c3acb" width="60%">
+</p>
+
+### Creating a post
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/9680f5ff-8a65-4812-b718-8513a878a0db" width="60%">
+</p>
 
