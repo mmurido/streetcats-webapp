@@ -1,43 +1,117 @@
-# StreetCats 🐾
-**Full-stack web app for sharing stray cat sightings**
+# Street Cats 🐾
 
-StreetCats is a web application that allows users to share and explore sightings of stray cats through an interactive map.  
-The platform enables users to upload photos, write formatted descriptions, and comment on existing posts.
+## 📌 Overview
 
-This project was developed as part of the *Web Technologies* course at the University of Naples Federico II.
+**Street Cats** is a Single Page Application (SPA) designed to share sightings of street cats. 
 
----
+Developed as an individual project for the *Web Technologies* course at the University of Naples Federico II (6 ECTS).
 
-## 🎯 Features
-
-- User registration and authentication  
-- Add new cat sightings with:
-  - photo upload  
-  - geographic location via interactive map  
-  - title and Markdown-formatted description  
-- Public exploration of sightings (no login required)  
-- Interactive map with markers and tooltips  
-- Detailed view page for each cat  
-- Comment system (authenticated users only)  
-- Responsive single-page application  
+Users can create posts with images, geolocate sightings on a map, and interact with posts through likes and comments. Guests can browse and search posts without registration, while authenticated users can contribute content and interact with other users.
 
 ---
 
-## 🛠 Tech Stack
+## 📌 Key features
 
-### Frontend
-TypeScript · Vue.js · Pinia · Tailwind CSS
-
-### Backend
-Django · REST API
-
-### Other
-Docker · Docker Compose · Playwright
+* Map-based search and visualization of posts
+* Post creation with images, geolocation, and Markdown-formatted descriptions
+* Authentication and authorization using JWT stored in HTTP-only cookies
+* Like and comment system
+* Guest vs authenticated user experience
+* Robust input validation and permission handling
 
 ---
 
-## 🎥 Demo
+## 📌 Architecture
 
+* **Front-end:** Vue SPA, Pinia state management
+* **Back-end:** Django REST API with JWT auth
+* **Database:** PostgreSQL + PostGIS
+* **Deployment:** Dockerized (frontend, backend, DB, tests)
+* Originally two separate repos; merged for demonstration
+
+
+---
+
+## 📌 Front-end
+
+**Tech Stack**:
+
+* Vue.js (SPA framework)
+* Vue Router (client-side routing)
+* Pinia (state management)
+* Zod (form validation)
+* Fetch API (HTTP requests)
+* Markdown-it (Markdown rendering)
+* Leaflet.js (interactive maps)
+* Tailwind CSS (styling)
+* Vite (development environment)
+* Playwright (end-to-end testing)
+
+**Highlights:**
+
+* Fully reactive and modular SPA
+* Feature-based modular architecture
+* Markdown editor with live preview (limited subset, Reddit-style)
+* Map search with suggestions (Nominatim) & interactive markers
+* Robust guest/auth user handling
+* E2E tests using Playwright to validate critical flows
+
+---
+
+## 📌 Back-end
+
+**Tech Stack**:
+
+* Python with Django framework
+* PostgreSQL with PostGIS extension for geospatial data
+
+
+**Authentication & Security**:
+
+* JWT stored in cookies (HTTP-only, secure: false, SameSite: Lax)
+* Access control enforced server-side
+* Endpoints validate user permissions and input data
+
+**Deployment / Development**:
+
+* All services run locally in Docker containers
+
+
+---
+
+## 📌 User experience
+
+**Home Page**:
+
+* Full-page interactive map with markers representing posts
+* Floating header with search bar, authentication menu, and create post button
+* Map search can be performed via typing (with suggestions) or "Search Here" button
+* Results are visible on the map or as a sidebar list
+
+**Post Page**:
+
+* Shows user profile, nationality, time since posting, post title, Markdown-formatted content
+* Image gallery with navigation
+* Mini-map indicating sighting location
+* Likes and comments (restricted to authenticated users)
+
+**Create Post Page**:
+
+* Requires login
+* Supports image upload (file browser or drag-and-drop)
+* Interactive map to select geolocation (zoom-enforced for precision)
+* Markdown description with live preview
+
+**Authentication Modal**:
+
+* Sign up with username, email, password, date of birth, country, optional profile picture
+* Login with username/email + password
+* Remember me functionality (persistent JWT token)
+* All form inputs validated client-side and server-side
+
+---
+
+## 📌 Demo
 ### Signing up
 <p align="center">
   <img src="https://github.com/user-attachments/assets/5cfd773d-4666-45d8-bc27-7faa65eef9de" width="90%">
